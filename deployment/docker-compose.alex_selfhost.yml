@@ -1,0 +1,12 @@
+services:
+  agrirouter-rest-api:
+    container_name: agrirouter-rest-api
+    build:
+      context: ..
+      dockerfile: ./deployment/Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+      - ASPNETCORE_URLS=http://0.0.0.0:5000
+    restart: unless-stopped

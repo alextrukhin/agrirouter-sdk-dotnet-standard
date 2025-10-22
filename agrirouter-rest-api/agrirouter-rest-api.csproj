@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <ProjectReference Include="..\agrirouter-sdk-dotnet-standard-impl\agrirouter-sdk-dotnet-standard-impl.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.32" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>agrirouter_rest_api</RootNamespace>
+    <HotReloadEnabled>false</HotReloadEnabled>
+  </PropertyGroup>
+
+</Project>

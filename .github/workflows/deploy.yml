@@ -1,0 +1,24 @@
+name: Alex Selfhost
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  Build-and-Deploy-front:
+    runs-on: [self-hosted, X64, Linux, alex_selfhost]
+    name: Build and deploy
+
+    steps:
+      - name: Set current date to tag the built image with
+        id: version
+        run: echo "builddate=$(date +'%Y-%m-%dT%H-%M-%S')" >> $GITHUB_OUTPUT
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build docker image
+        run: "docker compose -f ./deployment/docker-compose.alex_selfhost.yml build"
+
+      - name: Run docker image
+        run: "docker compose -f ./deployment/docker-compose.alex_selfhost.yml up -d"
